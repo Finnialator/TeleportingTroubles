@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 // THIS PLAYER MOVE CLASS WILL ALLOW THE GAMEOBJECT TO MOVE BASED ON CHARACTERCONTROLLER
 
@@ -44,6 +47,7 @@ public class FPSMovement : MonoBehaviour
     public float headRoom;
     private bool crouchSwitched;
 
+
     void Awake()
     {
         m_finalSpeed = m_movementSpeed;
@@ -55,7 +59,6 @@ public class FPSMovement : MonoBehaviour
     {
         m_isGrounded = HitGroundCheck(); // CHecks touching the ground every frame
         MoveInputCheck();
-
     }
 
     // Check if a button is pressed
@@ -82,11 +85,10 @@ public class FPSMovement : MonoBehaviour
             }
         }
         
-
-
         MovePlayer(move); // Run the MovePlayer function with the vector3 value move
         RunCheck(); // Checks the input for run
-        JumpCheck(); // Checks if we can jump
+        JumpCheck(); // Checks if we can jump        
+
 
         if (Input.GetKeyDown(m_crouch))
         {
