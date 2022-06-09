@@ -11,14 +11,10 @@ public class LongRangedCooldown : MonoBehaviour
     public float cooldownTotal = 10f;
     public KeyCode m_long;
     public Slider meterSlider;
-    
-
-    // Start is called before the first frame update
     void Start()
     {
         longOnCooldown = false;
     }
-
     void LongTeleport()
     {
         if (Input.GetKey(m_long) && longOnCooldown == false)
@@ -43,8 +39,6 @@ public class LongRangedCooldown : MonoBehaviour
             }
         }
     }
-
-    // Update is called once per frame
     void Update()
     {
         LongTeleport();   
