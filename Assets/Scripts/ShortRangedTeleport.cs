@@ -7,6 +7,7 @@ public class ShortRangedTeleport : MonoBehaviour
 {
     public Transform playerPos;
     public bool shortOnCooldown;
+    private float baseCooldown;
     public float shortCooldown = 3f;
     public KeyCode m_short;
     public float shortTeleport = 7.5f;
@@ -22,14 +23,14 @@ public class ShortRangedTeleport : MonoBehaviour
     {
         if (Input.GetKey(m_short) && shortOnCooldown == false) // Activates Short-Ranged Teleportation
         {
-            playerPos.transform.position += playerPos.transform.forward * shortTeleport;
+            playerPos.transform.position += playerPos.transform.forward * shortTeleport; // Teleport
             shortOnCooldown = true;
-            shortCooldown = 3;
+            baseCooldown = shortCooldown; // Cooldown reset
         }
         if (shortOnCooldown == true) // Cooldown calculations
         {
-            shortCooldown -= Time.deltaTime;
-            if (shortCooldown <= 0)
+            baseCooldown -= Time.deltaTime;
+            if (baseCooldown <= 0)
             {
                 shortOnCooldown = false;
             }

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class ShortRangedCooldown : MonoBehaviour
 {
     public bool shortOnCooldown;
+    private float baseCooldown;
     public float shortCooldown = 3f;
     public float cooldownTotal = 3f;
     public KeyCode m_short;
@@ -29,14 +30,14 @@ public class ShortRangedCooldown : MonoBehaviour
         if (Input.GetKey(m_short) && shortOnCooldown == false)
         {
             shortOnCooldown = true;
-            shortCooldown = 3;
+            baseCooldown = shortCooldown;
         }
         if (shortOnCooldown == true)
         {
-            float percentageResult =  shortCooldown / cooldownTotal;
+            float percentageResult =  baseCooldown / cooldownTotal;
             meterSlider.value = percentageResult;
-            shortCooldown -= Time.deltaTime;
-            if (shortCooldown <= 0)
+            baseCooldown -= Time.deltaTime;
+            if (baseCooldown <= 0)
             {
                 shortOnCooldown = false;
             }

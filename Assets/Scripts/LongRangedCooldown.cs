@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class LongRangedCooldown : MonoBehaviour
 {
     public bool longOnCooldown;
+    private float baseCooldown;
     public float longCooldown = 10f;
     public float cooldownTotal = 10f;
     public KeyCode m_long;
@@ -25,15 +26,15 @@ public class LongRangedCooldown : MonoBehaviour
             if (Physics.Raycast(ray, out hit, 1000))
             {
                 longOnCooldown = true;
-                longCooldown = 10;
+                baseCooldown = longCooldown;
             }
         }
         else if (longOnCooldown == true)
         {
-            float percentageResult = longCooldown / cooldownTotal;
+            float percentageResult = baseCooldown / cooldownTotal;
             meterSlider.value = percentageResult;
-            longCooldown -= Time.deltaTime;
-            if (longCooldown <= 0)
+            baseCooldown -= Time.deltaTime;
+            if (baseCooldown <= 0)
             {
                 longOnCooldown = false;
             }
