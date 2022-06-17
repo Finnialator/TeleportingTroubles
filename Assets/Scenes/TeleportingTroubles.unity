@@ -1069,6 +1069,10 @@ PrefabInstance:
       value: 323
       objectReference: {fileID: 0}
     - target: {fileID: 3020366304088509113, guid: ed63680e020234540b4a593aa370430c, type: 3}
+      propertyPath: m_crouch
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3020366304088509113, guid: ed63680e020234540b4a593aa370430c, type: 3}
       propertyPath: m_gravity
       value: -10
       objectReference: {fileID: 0}
@@ -1076,6 +1080,10 @@ PrefabInstance:
       propertyPath: playerPos
       value: 
       objectReference: {fileID: 35738769}
+    - target: {fileID: 3020366304088509113, guid: ed63680e020234540b4a593aa370430c, type: 3}
+      propertyPath: m_runSpeed
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3020366304088509113, guid: ed63680e020234540b4a593aa370430c, type: 3}
       propertyPath: shortCooldown
       value: 5
